@@ -1,15 +1,15 @@
 class application {
   file {
-    ["/var/application",
-    "/var/application/shared",
-    "/var/application/shared/config"]:
+    ["/var/$application_name",
+    "/var/$application_name/shared",
+    "/var/$application_name/shared/config"]:
       ensure => directory,
       owner => vagrant,
       group => vagrant,
       mode => 775
   }
   file {
-    "/var/application/shared/config/database.yml":
+    "/var/$application_name/shared/config/database.yml":
       ensure => present,
       owner => vagrant,
       group => vagrant,
