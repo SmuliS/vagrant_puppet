@@ -6,5 +6,21 @@ $application_name = "extranet"
 
 include apache2
 include application
+include postgresql
 include passenger
+
+
+class { 'postgresql::server':
+    config_hash => {
+        'ip_mask_allow_all_users' => '0.0.0.0/0',
+        'listen_addresses' => '*',
+        'postgres_password' => 'password',
+    },
+}
+
+postgresql::db{ '$application_name':
+  user          => 'puppetdb',
+  password      => 'puppetdb',
+  grant         => 'all',
+}
 
