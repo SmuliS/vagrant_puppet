@@ -8,7 +8,7 @@ include apache2
 include application
 include postgresql
 include passenger
-
+include capistrano
 
 class { 'postgresql::server':
     config_hash => {

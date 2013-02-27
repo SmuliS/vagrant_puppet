@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+  Servername application
+  DocumentRoot "/var/<%= application_name%>/current/public/"
+  <Directory /var/<%= application_name%>/current/public/>
+    Allow from all
+    Options -MultiViews
+  </Directory>
+  CustomLog /var/log/apache2/<%= application_name%>-access_log combined
+  ErrorLog /var/log/apache2/<%= application_name%>-error_log
+</Virtualhost>

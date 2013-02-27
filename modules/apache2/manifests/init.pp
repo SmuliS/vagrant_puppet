@@ -15,8 +15,8 @@ class apache2 {
       owner => root,
       group => root;
     "/etc/apache2/sites-enabled/application.conf":
-      source => "puppet:///modules/apache2/application.conf",
       owner => root,
+      content => template("apache2/application.conf.erb"),
       group => root,
       notify => Service["apache2"],
       require => Package["apache2"];
