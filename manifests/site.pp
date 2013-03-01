@@ -19,8 +19,8 @@ class { 'postgresql::server':
 }
 
 postgresql::db{ '$application_name':
-  user          => 'puppetdb',
-  password      => 'puppetdb',
+  user          => 'db_user',
+  password      => 'db_password',
   grant         => 'all',
 }
 
