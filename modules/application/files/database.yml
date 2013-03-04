@@ -15,7 +15,9 @@ test:
 
 production:
   adapter: postgresql
-  database: application_production
+  database: teletubby_production
+  username: username
+  password: password
   pool: 5
   timeout: 5000
 manage_redhat_firewall' => true,

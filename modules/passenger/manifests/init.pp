@@ -1,6 +1,6 @@
 class passenger {
   exec {
-    "/usr/local/bin/gem install passenger -v=3.0.19":
+    "gem install passenger -v=3.0.19":
       user => root,
       group => root,
       alias => "install_passenger",
@@ -8,7 +8,7 @@ class passenger {
       unless => "ls /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.19/"
   }
   exec {
-    "sudo /usr/local/bin/passenger-install-apache2-module --auto":
+    "sudo passenger-install-apache2-module --auto":
       user => root,
       group => root,
       timeout => 600,

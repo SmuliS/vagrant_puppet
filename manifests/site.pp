@@ -1,8 +1,18 @@
+# Set variables #
+
+$user_name = "vagrant"
+$application_name = "extranet"
+$git_url = ""
+$database_name = "extranet_production"
+$database_username = "username"
+$database_password = "password"
+
+# Don't mind #
+
 Exec {
   path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 }
 
-$application_name = "extranet"
 
 include apache2
 include application
@@ -18,9 +28,9 @@ class { 'postgresql::server':
     },
 }
 
-postgresql::db{ '$application_name':
-  user          => 'db_user',
-  password      => 'db_password',
+postgresql::db{ database_name:
+  user          => $database_username,
+  password      => $database_password,
   grant         => 'all',
 }
 

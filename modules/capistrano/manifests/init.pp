@@ -1,6 +1,6 @@
 class capistrano {
   exec {
-    "/usr/local/bin/gem install capistrano -v=2.14.2":
+    "gem install capistrano -v=2.14.2":
       user => root,
       group => root,
       alias => "install_capistrano",
